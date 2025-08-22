@@ -1,5 +1,9 @@
-import os
-from server import server  # Import your Flask app from server.py
+from flask import Flask, request, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "House Price Prediction App is Running!"
 
 if __name__ == "__main__":
-    server.app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(host="0.0.0.0", port=5000)
