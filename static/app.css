@@ -99,16 +99,27 @@ h2 {
 	border-radius: 5px;
 }
 
-.result{
-		background: #dcd686;
-		width: 76%;
-		border: 0;
-		margin: 25px 0 10px;
-		box-sizing: border-box;
-		font-size: 15px;
-		height: 35px;
-		text-align: center;
+/* Style the result box */
+#uiEstimatedPrice {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    background: #f5f5dc;   /* light beige */
+    display: inline-block; /* shrink to fit text */
+    padding: 12px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* Center it horizontally */
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .img {
   background: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
