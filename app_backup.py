@@ -1,5 +1,10 @@
+import logging
 from flask import Flask, render_template, request, jsonify
 import util
+
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -9,11 +14,16 @@ def home():
 
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
-    response = jsonify({
-        'locations': util.get_location_names()
-    })
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    return response
+    try:
+        locations = util.get_location_names()
+        response = jsonify({
+            'locations': locations
+        })
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+    except Exception as e:
+        logger.error(f"Error in get_location_names: {e}")
+        return jsonify({'error': 'Failed to retrieve location names'}), 500
 
 @app.route('/predict_home_price', methods=['GET', 'POST'])
 def predict_home_price():
@@ -36,9 +46,12 @@ def predict_home_price():
         response.headers.add('Access-Control-Allow-Origin', '*')
         return response
     except Exception as e:
+        logger.error(f"Error in predict_home_price: {e}")
         return jsonify({'error': 'Failed to predict home price'}), 500
 
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
-    util.load_saved_artifacts()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    try:
+        util.load_saved_artifacts()
+        app.run(host="0.0.0.0", port=5000, debug=True)
+    except Exception as e:
