@@ -17,6 +17,97 @@ body, html {
     color: #333;
 }
 
+/* Dark mode variables */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-bg: #f8f9fa;
+
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --card-bg: white;
+    --card-shadow: rgba(0,0,0,0.1);
+    --navbar-bg: rgba(44, 62, 80, 0.95);
+    --navbar-text: white;
+}
+
+body.dark-mode {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+    background: #1f1f1f !important;
+    color: var(--navbar-text);
+    box-shadow: none;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-nav .nav-link {
+    color: var(--navbar-text);
+}
+
+body.dark-mode .hero-section {
+    color: #e0e0e0;
+}
+
+body.dark-mode .prediction-card {
+    background: #1e1e1e;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+    border: none;
+}
+
+body.dark-mode .card-header {
+    background: #2c3e50 !important;
+    border-radius: 20px 20px 0 0 !important;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-mode .form-control:focus,
+body.dark-mode .form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.3rem rgba(52, 152, 219, 0.5);
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+body.dark-mode .btn-primary {
+    background: var(--secondary-color);
+    border: none;
+    color: white;
+}
+
+body.dark-mode .btn-primary:hover {
+    background: #2980b9;
+}
+
+body.dark-mode .btn-outline-primary {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+body.dark-mode .btn-outline-primary:hover,
+body.dark-mode .btn-check:checked + .btn-outline-primary {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+body.dark-mode .result-card {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
 /* Navigation */
 .navbar {
     background: rgba(44, 62, 80, 0.95) !important;
